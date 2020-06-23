@@ -5,10 +5,16 @@ import { hide } from 'expo/build/launch/SplashScreen';
 const ProductItem = props => {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{uri: props.url}} />
-        
-            <Text>{props.title}</Text>
-            <Text>{props.price}</Text>
+            <View style={styles.imageContainer}>
+                <Image style={styles.image} source={{uri: props.url}} />
+            </View>
+            
+
+            <View style={styles.detail}>
+                <Text>{props.title}</Text>
+                <Text>{props.price}</Text>
+            </View>
+            
 
             <View style={styles.buttonContainer}>
                 <Button title='Add to cart' onPress={props.onAddToCart}/>
@@ -19,6 +25,11 @@ const ProductItem = props => {
 }
 
 const styles = StyleSheet.create({
+    detail: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
     buttonContainer: {
         flexDirection: "row",
         justifyContent: "space-around"
@@ -36,8 +47,18 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 2},
         elevation: 5,
         margin: 20,
+        overflow: "hidden",
+        backgroundColor: 'white',
+
+    },
+
+    imageContainer: {
+        width: "100%",
+        height: "60%",
+        borderTopLeftRadius: 1,
+        borderTopRightRadius: 1,
         overflow: "hidden"
-    }
+    },
 });
 
 export default ProductItem;

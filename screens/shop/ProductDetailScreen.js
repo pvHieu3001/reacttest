@@ -3,10 +3,10 @@ import {View, StyleSheet, Text, Button} from 'react-native';
 import {useSelector} from 'react-redux'
 
 const ProductDetailScreen = props => {
-    const ProductId = props.navigation.getParam('productId');
-    const selectProduct = useSelector(state => state.products.avialableProducts.find(prod => prod.id === ProductId));
+    const ProductId = props.navigation.getParam('productTitle');
+    //const selectProduct = useSelector(state => state.products.avialableProducts.find(prod => prod.id === ProductId));
     return (
-        <View>{selectProduct.title}</View>
+        <Text>{ProductId}</Text>
     );
 }
 
